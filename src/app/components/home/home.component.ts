@@ -9,20 +9,28 @@ import { User } from '../../user';
 })
 export class HomeComponent {
   constructor(private reqresService: ReqresService) {
-
+    this.getUsers();
   }
 
 
   // method that gets a list of users using the service
   // fix this subscribe as it is deprecated
+  // getUsers() {
+  //   this.reqresService.getUsers().subscribe(
+  //     (res: User[]) => {
+  //       console.table(res);
+  //     },
+  //     (err) => {
+  //       console.error(err);
+  //     }
+  //   );
+  // }
+
   getUsers() {
-    this.reqresService.getUsers().subscribe(
-      (res: User[]) => {
-        console.table(res);
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
+    this.reqresService.getUsers().subscribe({
+      next: (res: User[]) => console.table(res),
+      error: (err) => console.log(err),
+      complete: () => console.log('Successfully Completed')
+    })
   }
 }
