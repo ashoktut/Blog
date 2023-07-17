@@ -1,1 +1,9 @@
-<p>home works!</p>
+<ul>
+  <li *ngFor="let user of users">
+    <img [src]="user.avatar" alt="img">
+    <p>{{user.first_name}} {{user.last_name}}</p>
+    <div class="detailsButton">
+      <button class="btn btn-outline-primary btn-sm" (click)="userDetails(user.id)">Details</button>
+    </div>
+  </li>
+</ul>

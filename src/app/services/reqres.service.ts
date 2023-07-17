@@ -15,8 +15,9 @@ export class ReqresService {
     return this.http.get<User[]>(this.url);
   }
 
+  // function incharge of making the get request to obtain information from a user based on their id
   getUser( id: number ): Observable<User> {
     const url = `${this.url}/${id}`;
     return this.http.get<User>(url);
-    }
+  }
 }

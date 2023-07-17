@@ -14,7 +14,8 @@ export class HomeComponent {
 
 
   // method that gets a list of users using the service
-  // fix this subscribe as it is deprecated
+  // fixed this subscribe as it is deprecated
+  // reference research video: https://www.youtube.com/watch?v=ahFEatzThIg
   // getUsers() {
   //   this.reqresService.getUsers().subscribe(
   //     (res: User[]) => {
@@ -26,11 +27,17 @@ export class HomeComponent {
   //   );
   // }
 
+  users: User[] = [];
+
   getUsers() {
     this.reqresService.getUsers().subscribe({
-      next: (res: User[]) => console.table(res),
+      next: (res: User[]) => this.users = res,
       error: (err) => console.log(err),
       complete: () => console.log('Successfully Completed')
     })
+  }
+
+  userDetails(id: number) {
+    console.log('User ID: ', id);
   }
 }
