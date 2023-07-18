@@ -11,6 +11,7 @@ import { Page404Component } from './components/page404/page404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { UserDetailComponent } from './components/user/user-detail.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     AboutComponent,
     ContactComponent,
     HomeComponent,
-    Page404Component
+    Page404Component,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
