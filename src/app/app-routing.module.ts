@@ -5,6 +5,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { Page404Component } from './components/page404/page404.component';
 import { UserDetailComponent } from './components/user/user-detail.component';
+import { UserAddComponent } from './components/user/user-add.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'user/:id', component: UserDetailComponent},
+  {path: 'add', component: UserAddComponent},
   // {path: 'path', component: FeatureComponent},
   {path: '**', component: Page404Component},
 ];

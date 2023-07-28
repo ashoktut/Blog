@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReqresService } from '../../services/reqres.service';
 import { User } from 'src/app/user';
 
@@ -21,13 +21,18 @@ export class UserDetailComponent implements OnInit{
     first_name: '',
     last_name: '',
     avatar: ''
-  }
-  constructor(private activatedRoute: ActivatedRoute, private reqresService: ReqresService) {
+  };
+  constructor(private activatedRoute: ActivatedRoute, private reqresService: ReqresService, private router: Router) {
     this.activatedRoute.params.subscribe((params)=> {
       reqresService.getUser(params['id']).subscribe((res: User) => this.user = res);
-    })
+    });
   }
   ngOnInit() {
     throw new Error('Method not implemented.');
+  }
+
+  save(): void {
+    // this.reqresService.updateUser(this.user).subscribe(()=>this.router.navigate(['users'])); <- before
+    this.reqresService.updateUser(this.user).subscribe(()=>this.router.navigate(['home']));
   }
 }
