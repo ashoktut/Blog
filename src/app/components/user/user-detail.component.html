@@ -5,6 +5,11 @@
               <div class="col-4">
                   <img *ngIf="user.avatar" [src]="user.avatar" class="card-img-top img-thumb" [alt]="user.first_name">
                   <h5 class="card-title">{{ user.first_name }}</h5>
+                  <div class="form-inline">
+                    <label for="user-name">Name: </label>
+                    <input id="user-name" [(ngModel)]="user.first_name" placeholder="name" class="form-control">
+                    <button (click)="save()" class="btn btn-success">Save</button>
+                  </div>
               </div>
               <div class="col-8">
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis sed elit ac sagittis. Integer facilisis scelerisque erat quis finibus. Nunc euismod molestie eros, id semper lacus euismod tempus. Nulla at justo id felis

@@ -13,6 +13,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { UserDetailComponent } from './components/user/user-detail.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { UserAddComponent } from './components/user/user-add.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ContactComponent,
     HomeComponent,
     Page404Component,
-    UserDetailComponent
+    UserDetailComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<!-- From the contact page, we saw how to define a form, so
+ just copy the code that will replace the content of our user-add.component.html -->
+
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="first_name">First Name: </label>
+      <input type="text" formControlName="first_name" class="form-control">
+      <div *ngIf="submitted && userForm.controls['first_name'].errors" class="error">
+        <div *ngIf="userForm.controls['first_name'].errors['required']">Your first name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="last_name">Last Name: </label>
+      <input type="text" formControlName="last_name" class="form-control">
+      <div *ngIf="submitted && userForm.controls['last_name'].errors" class="error">
+        <div *ngIf="userForm.controls['last_name'].errors['required']">Your last name is required</div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>

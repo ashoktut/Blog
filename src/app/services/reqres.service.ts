@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -9,6 +9,10 @@ import { User } from '../user';
 })
 export class ReqresService {
   private url = 'api/users';
+
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -42,5 +46,12 @@ export class ReqresService {
       // Let the app keep running by returning an empty result
       return of(result as T);
     };
+  }
+
+  // Update user
+  updateUser(user: User): any {
+    return this.http.put(this.url, user, this.httpOptions).pipe(
+      catchError(this.handleError<User>('updateUser'))
+    );
   }
 }
