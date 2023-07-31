@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactComponent {
   // add three properties
   messageForm: FormGroup; // Represents entire form
-  submitted = false; // These two indicate if form has been sent & if validation was successful
+  submitted = false; // These two below indicate if form has been sent & if validation was successful
   success = false;
 
   // inject a variable of type FormBuilder in the constructor
