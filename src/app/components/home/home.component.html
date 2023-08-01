@@ -12,6 +12,7 @@
     <p>{{user.first_name}} {{user.last_name}}</p>
     <div class="detailsButton">
       <button class="btn btn-outline-primary btn-sm" (click)="userDetails(user.id)">Details</button>
+      <button class="btn btn-danger btn-sm" title="Delete User" (click)="deleteUser(user)">Delete</button>
     </div>
   </li>
 </ul>
