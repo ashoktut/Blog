@@ -48,4 +48,11 @@ export class HomeComponent {
   addUser(): void {
     this.router.navigate(['add']);
   }
+
+  // calling a deleteUser method of our service that will be in charge of the deletion,
+  // it is the responsibility of the component to update its own list of users
+  deleteUser(user: any) {
+    this.users = this.users.filter(u => u !== user);
+    this.reqresService.deleteUser(user).subscribe();
+  }
 }

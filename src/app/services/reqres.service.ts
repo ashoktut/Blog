@@ -61,4 +61,12 @@ export class ReqresService {
       catchError(this.handleError<User>('addUser'))
     );
   }
+
+  // Delete User method in charge of the elimination
+  deleteUser(user: User): Observable<User> {
+    const url = `${this.url}/${user.id}`;
+    return this.http.delete<User>(url, this.httpOptions).pipe(
+      catchError(this.handleError<User>('deleteUser id=${user.id}'))
+    );
+  }
 }
