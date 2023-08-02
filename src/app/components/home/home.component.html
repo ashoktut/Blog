@@ -1,18 +1,29 @@
-<div class="btn-toolbar" role="toolbar">
-  <!-- add a button in the list of users that leads to a form in which to enter the data of the new user -->
-  <div class="btn-group">
-    <button class="btn btn-success" (click)="addUser()">Add User</button>
+<app-loading *ngIf="loading"></app-loading>
+<!-- <div class="row text-center">
+  <div class="col">
+    <i class="fa-solid fa-rotate fa-spin" aria-hidden="true"></i>
   </div>
-  <!--  -->
-</div>
+</div> -->
 
-<ul>
-  <li *ngFor="let user of users">
-    <img [src]="user.avatar" alt="img">
-    <p>{{user.first_name}} {{user.last_name}}</p>
-    <div class="detailsButton">
-      <button class="btn btn-outline-primary btn-sm" (click)="userDetails(user.id)">Details</button>
-      <button class="btn btn-danger btn-sm" title="Delete User" (click)="deleteUser(user)">Delete</button>
+<div class="container pt-5" *ngIf="!loading">
+  <div class="btn-toolbar" role="toolbar">
+    <!-- add a button in the list of users that leads to a form in which to enter the data of the new user -->
+    <div class="btn-group">
+      <button class="btn btn-success" (click)="addUser()">Add User</button>
     </div>
-  </li>
-</ul>
+    <!--  -->
+  </div>
+
+
+
+  <ul>
+    <li *ngFor="let user of users">
+      <img [src]="user.avatar" alt="img">
+      <p>{{user.first_name}} {{user.last_name}}</p>
+      <div class="detailsButton">
+        <button class="btn btn-outline-primary btn-sm" (click)="userDetails(user.id)">Details</button>
+        <button class="btn btn-danger btn-sm" title="Delete User" (click)="deleteUser(user)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -32,6 +32,7 @@ export class HomeComponent {
   // }
 
   users: User[] = [];
+  loading: boolean = false;
 
   getUsers() {
     this.reqresService.getUsers().subscribe({

@@ -14,6 +14,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { UserDetailComponent } from './components/user/user-detail.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserAddComponent } from './components/user/user-add.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 
 @NgModule({
@@ -25,17 +27,19 @@ import { UserAddComponent } from './components/user/user-add.component';
     HomeComponent,
     Page404Component,
     UserDetailComponent,
-    UserAddComponent
+    UserAddComponent,
+    NoimagePipe,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, // Manually add HttpClientModule to auto import it above. For services, Angular does not register it like it does for components.
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false}
+      InMemoryDataService, {dataEncapsulation: false, delay: 1500}
     ),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
